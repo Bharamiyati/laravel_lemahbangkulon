@@ -741,7 +741,7 @@
         }
     } );
 
-    //bar chart
+    //data jenis kelamin
     var jklkl = document.getElementById("jklkrajanlor").innerHTML;
     var jkpkl = document.getElementById("jkpkrajanlor").innerHTML;
     var jklkk = document.getElementById("jklkrajankidul").innerHTML;
@@ -785,7 +785,7 @@
         }
     } );
 
-    //Sales chart
+    //Data penduduk meninggal dan pindah
     var dtm1 = document.getElementById("dtm1").innerHTML;
     var dtm2 = document.getElementById("dtm2").innerHTML;
     var dtm3 = document.getElementById("dtm3").innerHTML;

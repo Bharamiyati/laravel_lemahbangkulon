@@ -122,8 +122,13 @@
                                     <div class="valid-feedback">valid</div>
                                 </div>
                                 <div class="col">
-                                    <label for="text-input" class=" form-control-label">Tempat Lahir</label>
-                                    <input type="text" id="text-input" name="txt_tmptlhr" placeholder="Masukkan Tempat Lahir" class="form-control" required>
+                                    <label for="select" class=" form-control-label">Tempat lahir</label>
+                                    <select name="txt_tmptlhr" id="select" class="form-control" required>
+                                        <option value=""></option>
+                                        @foreach($data_kab as $data)
+                                        <option value={{$data->id}}>{{$data->nama_kab}}</option>
+                                        @endforeach
+                                    </select>
                                     <div class="invalid-feedback">wajib diisi</div>
                                     <div class="valid-feedback">valid</div>
                                 </div>

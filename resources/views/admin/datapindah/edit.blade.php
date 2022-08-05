@@ -41,7 +41,7 @@
                         </div>
                     @endif
                     <div class="card-header">
-                        <strong>Masukkan Data Masyarakat</strong>
+                        <strong>{{$pagename}}</strong>
                     </div>
                     <div class="card-body card-block">
                         @if($errors->any())

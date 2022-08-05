@@ -72,7 +72,7 @@ class DataPindahController extends Controller
     public function edit($id)
     {
         //
-        $pagename='Update Data';
+        $pagename='Update Data Pindah';
         $data=datapindah::find($id);
         return view('admin.datapindah.edit', compact('pagename', 'data'));
     }

@@ -56,23 +56,42 @@
 
                         @endif
 
-                        <form action="{{route('users.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="{{route('users.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal was-validated">
                             @csrf
                             <div class="row form-group">
                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama User</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtnama_user" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="text-input" name="txtnama_user" placeholder="Nama User" class="form-control" required><small class="form-text text-muted"></small>
+                                    <div class="invalid-feedback">Wajib Diisi</div>
+                                    <div class="valid-feedback">valid</div>
+                                </div>
+                                
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Email</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtemail_user" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="text-input" name="txtemail_user" placeholder="Email" class="form-control" required><small class="form-text text-muted"></small>
+                                    <div class="invalid-feedback">Wajib Diisi</div>
+                                    <div class="valid-feedback">valid</div>
+                                </div>
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Password</label></div>
-                                <div class="col-12 col-md-9"><input type="password" id="text-input" name="txtpassword_user" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="password" id="text-input" name="txtpassword_user" placeholder="Password" class="form-control" required><small class="form-text text-muted"></small>
+                                    <div class="invalid-feedback">Wajib Diisi</div>
+                                    <div class="valid-feedback">valid</div>
+                                </div>
+                                
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Konfirmasi Password</label></div>
-                                <div class="col-12 col-md-9"><input type="password" id="text-input" name="txtkonfirmasipassword_user" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="password" id="text-input" name="txtkonfirmasipassword_user" placeholder="Password" class="form-control" required><small class="form-text text-muted"></small>
+                                    <div class="invalid-feedback">Wajib Diisi</div>
+                                    <div class="valid-feedback">valid</div>
+                                </div>
+                                
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3"><label for="select" class=" form-control-label">Role</label></div>

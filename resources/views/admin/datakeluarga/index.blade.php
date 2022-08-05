@@ -131,7 +131,7 @@
                                     } elseif ($row->bahan_bakar_memasak == 2) {
                                         $bahan = 'Gas 3kg';
                                     } elseif ($row->bahan_bakar_memasak == 3) {
-                                        $aset = '> Gas 3kg';
+                                        $bahan = '> Gas 3kg';
                                     };
                                 ?>
 

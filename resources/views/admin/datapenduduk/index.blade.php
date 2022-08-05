@@ -195,16 +195,14 @@
                         @can('data-create')
                         <a href="{{route('datapenduduk.create')}}" class="btn btn-success pull-right"> Tambah Data </a>
                         @endcan
-
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="table" class="table table-bordered">
                                 <thead>
-                                    <tr>
                                         <th>Nomor</th>
                                         <th>Foto</th>
-                                        <th>Nama Lengkap</th>
+                                        <th style="padding: 0 50px; width: 50% !important;">Nama Lengkap</th>
                                         <th>NIK</th>
                                         <th>Nomor KK</th>
                                         <th>Kepala Keluarga</th>
@@ -216,7 +214,6 @@
                                         @can('data-edit')
                                         <th>Action</th>
                                         @endcan
-                                    </tr>
                                 </thead>
                                 <tbody>
 
@@ -293,21 +290,21 @@
                                         <td>{{$sp}}</td>
                                         <td>
                                             <div class="dropdown show">
-                                                <a class="btn btn- dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                     <form action="{{route('datapenduduk.edit', $row->id)}}" class="dropdown-item">
-                                                        <button class="btn">Edit</button>
+                                                        <button class="btn btn-success btn-sm">Edit</button>
                                                     </form>
                                                     <form action="{{route('pindah.destroy',$row->id)}}" class="dropdown-item" method="post" style="z-index: -1;">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn">Pindah</button>
+                                                        <button class="btn btn-warning btn-sm">Pindah</button>
                                                     </form>
                                                     <form action="{{route('datapenduduk.destroy',$row->id)}}" class="dropdown-item" method="post" style="z-index: -1;" >
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn">Meninggal</button>
+                                                        <button class="btn btn-primary btn-sm">Meninggal</button>
                                                     </form>
                                                 </div>
                                             </div>

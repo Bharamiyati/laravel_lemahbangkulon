@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         @endif
-                        <form action="{{route('datakeluarga.update', $datakk->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="{{route('datakeluarga.update', $datakk->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal was-validated">
                         @method('PATCH')
                         @csrf
                             <div class="row form-group">

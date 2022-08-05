@@ -49,7 +49,7 @@
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+                                <strong>Email atau password tidak valid</strong>
                             </span>
                             @enderror
                         </div>
@@ -59,7 +59,7 @@
 
                             @error('password')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+                                <strong>Email atau password tidak valid</strong>
                             </span>
                             @enderror
                         </div>
@@ -67,7 +67,6 @@
                             <label>
                                 <input type="checkbox"> Remember Me
                             </label>
-
                         </div>
                         <button type="submit" class="btn" style="background-color: #00b894; color:white;">
                             {{ __('Login') }}

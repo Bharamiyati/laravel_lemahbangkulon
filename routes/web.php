@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,31 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('/roles', 'Admin\RoleController');
     Route::resource('/users', 'Admin\UserController');
 });
+
+
+//mengambil API data lokasi
+//Route::get('/kab', function() {
+// Method: POST, PUT, GET etc
+// Data: array("param" => "value") ==> index.php?param=value
+
+//    $url = "https://twilight-frost-2680.fly.dev/kab";
+ //   $curl = curl_init();
+
+    // Optional Authentication:
+
+//    curl_setopt($curl, CURLOPT_URL, $url);
+ //   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+//    $result = curl_exec($curl);
+//    $result = json_decode($result);
+
+//    curl_close($curl);
+
+    //dd($result->data);
+
+    // foreach ($result->data as $data) {
+    //     DB::table('kota_kabupaten')->insert(['nama_kab'=>$data->name]);
+    // }
+
+//    dd('sukses');
+//});

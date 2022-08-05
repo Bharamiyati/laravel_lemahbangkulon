@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\datakeluarga;
 use App\datameninggal;
 use App\datapenduduk;
 use App\dusun;
@@ -65,12 +64,15 @@ class DataPendudukController extends Controller
         $data_pekerjaan = pekerjaan::all();
         $data_rw = rw::all();
         $data_rt = rt::all();
+        $data_kab = DB::table('kota_kabupaten')->get();
+        //dd($data_kab);
+
         $status = ["1", "0"];
         $jeniskelamin = ["1", "0"];
         $statuspenduduk = ['1', '0'];
         $statuspernikahan = ['Belum', 'Sudah'];
         $pagename = "Form Data Penduduk";
-        return view('admin.datapenduduk.create', compact('data_pekerjaan','data_dusun', 'data_rw', 'data_rt', 'pagename', 'status', 'jeniskelamin', 'statuspernikahan', 'statuspenduduk'));
+        return view('admin.datapenduduk.create', compact('data_pekerjaan','data_dusun', 'data_kab','data_rw', 'data_rt', 'pagename', 'status', 'jeniskelamin', 'statuspernikahan', 'statuspenduduk'));
     }
 
     /**
@@ -159,6 +161,7 @@ class DataPendudukController extends Controller
         $data_dusun = dusun::all();
         $data_rw = rw::all();
         $data_rt = rt::all();
+        $data_kab = DB::table('kota_kabupaten')->get();
         $data_pekerjaan = pekerjaan::all();
         $status = ["1", "0"];
         $jeniskelamin = ["1", "0"];
@@ -166,7 +169,7 @@ class DataPendudukController extends Controller
         $statuspernikahan = ['Belum', 'Sudah'];
         $pagename = 'Update Data';
         $data = datapenduduk::find($id);
-        return view('admin.datapenduduk.edit', compact('data_pekerjaan','data', 'data_dusun', 'data_rw', 'data_rt', 'pagename', 'status', 'statuspernikahan', 'statuspenduduk', 'jeniskelamin'));
+        return view('admin.datapenduduk.edit', compact('data_pekerjaan','data','data_kab', 'data_dusun', 'data_rw', 'data_rt', 'pagename', 'status', 'statuspernikahan', 'statuspenduduk', 'jeniskelamin'));
     }
 
     /**
