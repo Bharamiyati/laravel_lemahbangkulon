@@ -7,198 +7,18 @@
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
-
-            <!-- <div id="inputan" class="col-lg-12 sembunyi">
-                <div class="card">
-                    @if(session()->get('sukses'))
-                    <div class="alert alert-success">
-                        {{session()->get('sukses')}}
-                    </div>
-                    @endif
-                    <div class="card-header">
-                        <strong>Masukkan Data Penduduk</strong>
-                        button class="btn btn-success pull-right" id="tutup"> Close </button>
-                    </div>
-                    <div class="card-body card-block">
-
-                        <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal was-validated">
-
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="text-input" class=" form-control-label">Input Foto</label>
-                                    <input name="photo" type="file" class="form-control" id="formFile" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="text-input" class="form-control-label">Nama Lengkap</label>
-                                    <input type="text" id="text-input" name="txt_nama" placeholder="Masukkan nama" class="form-control" required>
-                                    <div class="invalid-feedback">Wajib Diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                                <div class="col">
-                                    <label for="text-input" class="form-control-label">NIK</label>
-                                    <input type="text" id="text-input" name="txt_nik" placeholder="Masukkan NIK" class="form-control" required>
-                                    <div class="invalid-feedback">Wajib Diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="text-input" class=" form-control-label">Nomor KK</label>
-                                    <input type="text" id="text-input" name="txt_nomorkk" placeholder="Masukkan Nomor KK" class="form-control" required>
-                                    <div class="invalid-feedback">Wajib Diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="select" class=" form-control-label">Kepala Keluarga</label>
-                                    <select name="option_status" id="select" class="form-control" required>
-                                        <option value=""></option>
-                                        @foreach($status as $status)
-                                        <?php $st = "Ya";
-                                        if ($status == "0") {
-                                            $st = "Tidak";
-                                        }; ?>
-                                        <option value={{$status}}><?= $st; ?></option>
-                                        @endforeach
-                                    </select>
-                                    <div class="invalid-feedback">wajib diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="select" class=" form-control-label">Jenis Kelamin</label>
-                                    <select name="option_jeniskelamin" id="select" class="form-control" required>
-                                        <option value=""></option>
-                                        @foreach($jeniskelamin as $jeniskelamin)
-
-                                        <?php
-                                        $jk = "Pria";
-                                        if ($jeniskelamin == "0") {
-                                            $jk = "Wanita";
-                                        }
-                                        ?>
-                                        <option value={{$jeniskelamin}}><?= $jk ?></option>
-                                        @endforeach
-                                    </select>
-                                    <div class="invalid-feedback">Wajib Diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                                <div class="col">
-                                    <label for="text-input" class=" form-control-label">Tempat Lahir</label>
-                                    <input type="text" id="text-input" name="txt_tmptlhr" placeholder="Masukkan Tempat Lahir" class="form-control" required>
-                                    <div class="invalid-feedback">wajib diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                                <div class="col">
-                                    <label for="text-input" class=" form-control-label">Tanggal Lahir</label>
-                                    <input type="date" id="text-input" name="txt_tgllhr" placeholder="Masukkan Tanggal Lahir" class="form-control" required>
-                                    <div class="invalid-feedback">wajib diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="select" class=" form-control-label">Dusun</label>
-                                    <select name="option_dusun" id="select" class="form-control" required>
-                                        <option value=""></option>
-                                        @foreach($data_dusun as $dusun)
-                                        <option value={{$dusun->nama_dusun}}>{{$dusun->nama_dusun}}</option>
-                                        @endforeach
-                                    </select>
-                                    <div class="invalid-feedback">Wajib Diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                                <div class="col">
-                                    <label for="select" class=" form-control-label">RW</label>
-                                    <select name="option_rw" id="select" class="form-control" required>
-                                        <option value=""></option>
-                                        @foreach($data_rw as $rw)
-                                        <option value={{$rw->rw}}>{{$rw->rw}}</option>
-
-                                        @endforeach
-                                    </select>
-                                    <div class="invalid-feedback">Wajib Diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                                <div class="col">
-                                    <label for="select" class=" form-control-label">RT</label>
-                                    <select name="option_rt" id="select" class="form-control" required>
-                                        <option value=""></option>
-                                        @foreach($data_rt as $rt)
-                                        <option value={{$rt->rt}}>{{$rt->rt}}</option>
-
-                                        @endforeach
-                                    </select>
-                                    <div class="invalid-feedback">Wajib Diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="select" class=" form-control-label">Status Pernikahan</label>
-                                    <select name="option_statuspernikahan" id="select" class="form-control" required>
-                                        <option value=""></option>
-                                        @foreach($statuspernikahan as $statuspernikahan)
-                                        <option value={{$statuspernikahan}}>{{$statuspernikahan}}</option>
-                                        @endforeach
-                                    </select>
-                                    <div class="invalid-feedback">Wajib Diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                                <div class="col">
-                                    <label for="text-input" class=" form-control-label">Pekerjaan</label>
-                                    <input type="text" id="text-input" name="txt_pekerjaan" placeholder="Masukkan Pekerjaan" class="form-control" required>
-                                    <div class="invalid-feedback">wajib diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="select" class=" form-control-label">Status Penduduk</label>
-                                    <select name="option_statuspenduduk" id="select" class="form-control" required>
-                                        <option value=""></option>
-
-                                        @foreach($statuspenduduk as $statuspenduduk)
-                                        <?php
-                                        $sp = "Terdata";
-                                        if ($statuspenduduk == "0") {
-                                            $sp = "Belum";
-                                        }
-                                        ?>
-                                        <option value={{$statuspenduduk}}><?= $sp ?></option>
-                                        @endforeach
-                                    </select>
-                                    <div class="invalid-feedback">Wajib Diisi</div>
-                                    <div class="valid-feedback">valid</div>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-success btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Simpan Data
-                                </button>
-                                <button type="reset" class="btn btn-danger btn-sm">
-                                    <i class="fa fa-ban"></i> Reset
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
-
-
             <div id="datane" class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <strong class="card-title">{{$pagename}}</strong>
                         <strong class="card-title text-center">Jumlah : {{$jumlah}} Penduduk</strong>
-
                         @can('data-create')
                         <a href="{{route('datapenduduk.create')}}" class="btn btn-success pull-right"> Tambah Data </a>
                         @endcan
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="table" class="table table-bordered">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                         <th>Nomor</th>
                                         <th>Foto</th>
@@ -290,44 +110,32 @@
                                         <td>{{$sp}}</td>
                                         <td>
                                             <div class="dropdown show">
-                                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                     <form action="{{route('datapenduduk.edit', $row->id)}}" class="dropdown-item">
-                                                        <button class="btn btn-success btn-sm">Edit</button>
+                                                        <button class="btn btn-success btn-sm">
+                                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                        </button>
                                                     </form>
                                                     <form action="{{route('pindah.destroy',$row->id)}}" class="dropdown-item" method="post" style="z-index: -1;">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn btn-warning btn-sm">Pindah</button>
+                                                        <button class="btn btn-warning btn-sm">
+                                                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        </button>
                                                     </form>
                                                     <form action="{{route('datapenduduk.destroy',$row->id)}}" class="dropdown-item" method="post" style="z-index: -1;" >
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn btn-primary btn-sm">Meninggal</button>
+                                                        <button class="btn btn-danger btn-sm">
+                                                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>
                                         </td>
-                                        <!-- @can('data-edit')
-                                        <td><a href="{{route('datapenduduk.edit', $row->id)}}" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                        @endcan
-                                        @can('data-delete')
-                                        <td>
-                                            <form action="{{route ('pindah.destroy',$row->id)}}" method="post" style="z-index: -1;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger">Pindah</button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <form action="{{route ('datapenduduk.destroy',$row->id)}}" method="post" style="z-index: -1;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger">Meninggal</button>
-                                            </form>
-                                        </td>
-                                        @endcan -->
+
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -342,19 +150,21 @@
 
 <!-- Modal -->
 
+<!-- <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('vendors/popper.js/dist/umd/popper.min.js')}}"></script>
+<script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/js/main.js')}}"></script> -->
 
-
-
-<script type="text/javascript">
-    $('#tambah').click(function() {
-        $('#inputan').removeClass("sembunyi");
-        $('#datane').addClass('sembunyi');
-    });
-
-    $('#tutup').click(function(p) {
-        $('#inputan').addClass("sembunyi");
-        $('#datane').removeClass('sembunyi');
-    });
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<script src="{{asset('vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<!-- <script src="{{asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script> -->
+<script src="{{asset('vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('vendors/jszip/dist/jszip.min.js')}}"></script>
+<script src="{{asset('vendors/pdfmake/build/pdfmake.min.js')}}"></script>
+<script src="{{asset('vendors/pdfmake/build/vfs_fonts.js')}}"></script>
+<script src="{{asset('vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{asset('vendors/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
+<script src="{{asset('assets/js/init-scripts/data-table/datatables-init.js')}}"></script>
 @endsection

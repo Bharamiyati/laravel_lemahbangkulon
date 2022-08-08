@@ -23,14 +23,6 @@
 <!-- .content -->
 
 <div class="content mt-3">
-    <div class="col-sm-12">
-        <div class="alert  alert-success alert-dismissible fade show" role="alert">
-            <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    </div>
     <div class="col-sm-6 col-lg-3">
         <div class="card text-white bg-flat-color-1">
             <div class="card-body pb-0">
@@ -159,7 +151,7 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mb-3">Data Peserta jamkesmas</h4>
+                            <h4 class="mb-3">Keluarga Pra Sehat</h4>
                             <h1 id="jkn" style="display: none;">{{$jkn}}</h1>
                             <h1 id="jknx" style="display: none;" >{{$jknx}}</h1>
                             <canvas id="jamkesmas"></canvas>
@@ -330,8 +322,8 @@
 
                             } ],
             labels: [
-                            "peserta",
-                            "bukan peserta",
+                            "peserta jkn",
+                            "bukan peserta jkn",
                             
                         ]
         },

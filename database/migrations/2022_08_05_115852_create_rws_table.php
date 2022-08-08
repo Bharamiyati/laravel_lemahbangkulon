@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRtsTable extends Migration
+class CreateRwsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateRtsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rts', function (Blueprint $table) {
+        Schema::create('rws', function (Blueprint $table) {
             $table->id();
-            $table->string('rt');
-            $table->string('nama_ketua_rt');
-            $table->unsignedBigInteger('rw_id');
-            $table->foreign('rw_id')->references('id')->on('rws')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('rw');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateRtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rts');
+        Schema::dropIfExists('rws');
     }
 }
