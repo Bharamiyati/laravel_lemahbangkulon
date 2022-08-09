@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $jumlah = DB::table('datapenduduks')->count();
+    $jumlahkk = DB::table('datapenduduks')->where('datapenduduks.status', '=', '1')->count();
+    $terdata = DB::table('datapenduduks')->where('datapenduduks.status_penduduk', '=', '1')->count();
+    return view('welcome', compact('jumlah', 'jumlahkk', 'terdata'));
 });
 
 Auth::routes();
@@ -32,7 +35,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('/datapindah', 'Admin\DataPindahController');
     Route::resource('/datapenduduk', 'Admin\DataPendudukController');
     Route::resource('/datakeluarga', 'Admin\DataKeluargaController');
-    Route::resource('/views', 'Admin\WelcomeController');
     Route::resource('/alamat', 'Admin\AlamatController');
     Route::resource('/roles', 'Admin\RoleController');
     Route::resource('/users', 'Admin\UserController');

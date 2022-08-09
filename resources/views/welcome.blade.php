@@ -80,7 +80,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class="bi bi-person-fill"></i>
-              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="{{$jumlah}}" data-purecounter-duration="1" class="purecounter"></span>
               <p>Jumlah Penduduk</p>
             </div>
           </div>
@@ -88,16 +88,16 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
               <i class="bi bi-people-fill"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="{{$jumlahkk}}" data-purecounter-duration="1" class="purecounter"></span>
               <p> Jumlah Kepala Keluarga</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
-              <i class="bi bi-person-fill"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Jumlah Penduduk</p>
+              <i class="bi bi-person-lines-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{$terdata}}" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Jumlah Penduduk Terdata</p>
             </div>
           </div>
 
