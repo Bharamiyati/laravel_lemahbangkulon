@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('/datapindah', 'Admin\DataPindahController');
     Route::resource('/datapenduduk', 'Admin\DataPendudukController');
     Route::resource('/datakeluarga', 'Admin\DataKeluargaController');
-    
+    Route::resource('/views', 'Admin\WelcomeController');
     Route::resource('/alamat', 'Admin\AlamatController');
     Route::resource('/roles', 'Admin\RoleController');
     Route::resource('/users', 'Admin\UserController');

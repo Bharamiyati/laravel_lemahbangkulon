@@ -59,6 +59,7 @@
   </section>
   <!-- End Hero -->
 
+  <main id="main">
   <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
@@ -69,9 +70,48 @@
         <div class="row justify-content-center">
             <img src="{{asset('images/struktur.jpg')}}" alt="">
         </div>
-    </section><!-- End Team Section -->
+    </section>
+    <!-- End Team Section -->
 
-  <main id="main">
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="bi bi-person-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Jumlah Penduduk</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="bi bi-people-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p> Jumlah Kepala Keluarga</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="bi bi-person-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Jumlah Penduduk</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="bi bi-people-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p> Jumlah Kepala Keluarga</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Counts Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -79,7 +119,6 @@
 
         <div class="section-title">
           <h3><span>Kontak Kami</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -115,23 +154,26 @@
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
+    </section>
+    <!-- End Contact Section -->
+  </main>
+  <!-- End #main -->
+  
+  
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container py-4">
       <div class="copyright">
         <div class="social">
-                  <a href=""><i class="bi bi-twitter text-light fs-2"></i></a>
-                  <a href=""><i class="bi bi-facebook text-light  fs-2"></i></a>
-                  <a href=""><i class="bi bi-instagram text-light fs-2"></i></a>
-                  <a href=""><i class="bi bi-linkedin text-light fs-2"></i></a>
+          <a href=""><i class="bi bi-twitter text-light fs-2"></i></a>
+          <a href=""><i class="bi bi-facebook text-light  fs-2"></i></a>
+          <a href=""><i class="bi bi-instagram text-light fs-2"></i></a>
+          <a href=""><i class="bi bi-linkedin text-light fs-2"></i></a>
         </div>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
+  <!-- End Footer -->
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
