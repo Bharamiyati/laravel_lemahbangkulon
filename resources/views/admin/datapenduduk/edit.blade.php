@@ -10,6 +10,10 @@
 
 <link rel="stylesheet" href="{{asset('public/assets/css/style.css')}}">
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
 
 <div class="breadcrumbs">
     <div class="col-sm-4">
@@ -125,7 +129,7 @@
                                 </div>
                                 <div class="col">
                                     <label for="select" class=" form-control-label">Tempat Lahir</label>
-                                    <select name="txt_tmptlhr" id="select" class="form-control" required>
+                                    <select name="txt_tmptlhr" id="selectkab" class="form-control" required>
                                         @foreach($data_kab as $kab)
                                         <option value={{$kab->id}} 
                                             @if($kab->id==$data->tempat_lahir)
@@ -252,6 +256,11 @@
     </div><!-- .animated -->
 </div><!-- .content -->
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#selectkab').select2();
+    });
+</script>
 
 <script src="{{asset('public/vendors/jquery/dist/jquery.min.js')}}"></script>
 <!-- <script src="{{asset('public/vendors/popper.js/dist/umd/popper.min.js')}}"></script> -->
