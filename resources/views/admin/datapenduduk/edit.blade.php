@@ -150,8 +150,9 @@
                                     <label for="select" class=" form-control-label">RT</label>
                                     <select name="option_rt" id="select" class="form-control" required>
                                         @foreach($data_rt as $rt)
-                                        <option value={{$rt->id}} @if($rt->id==$data->id_rt)
-                                            selected
+                                        <option value={{$rt->id}} 
+                                            @if($rt->id==$data->RT)
+                                                selected
                                             @endif
                                             >{{$rt->rt}}</option>
                                         @endforeach
@@ -163,8 +164,9 @@
                                     <label for="select" class=" form-control-label">RW</label>
                                     <select name="option_rw" id="select" class="form-control" required>
                                         @foreach($data_rw as $rw)
-                                        <option value={{$rw->id}} @if($rw->id==$data->id_rw)
-                                            selected
+                                        <option value={{$rw->id}} 
+                                            @if($rw->id==$data->RW)
+                                                selected
                                             @endif
                                             >{{$rw->rw}}</option>
                                         @endforeach
@@ -176,8 +178,9 @@
                                     <label for="select" class=" form-control-label">Dusun</label>
                                     <select name="option_dusun" id="select" class="form-control" required>
                                         @foreach($data_dusun as $datadusun)
-                                        <option value={{$datadusun->id}} @if($datadusun->id==$data->alamat_dusun)
-                                            selected
+                                        <option value={{$datadusun->id}} 
+                                            @if($datadusun->id==$data->alamat_dusun)
+                                                selected
                                             @endif
                                             >{{$datadusun->nama_dusun}}</option>
                                         @endforeach
