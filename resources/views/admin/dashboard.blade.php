@@ -54,9 +54,22 @@
         <div class="card text-white bg-flat-color-3">
             <div class="card-body pb-0">
                 <h4 class="mb-0">
-                    <span class="count">{{$dtm1}}</span>
+                    <span class="count">{{$usiab}}</span>
                 </h4>
-                <p class="text-light">Jumlah Penduduk meninggal tahun 2022</p>
+                <p class="text-light">Jumlah Penduduk Usia Balita</p>
+                <div class="chart-wrapper px-0" style="height:90px;" height="70">
+                    <canvas id="widgetChart2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-flat-color-4">
+            <div class="card-body pb-0">
+                <h4 class="mb-0">
+                    <span class="count">{{$usiap}}</span>
+                </h4>
+                <p class="text-light">Jumlah Penduduk usia produktiv</p>
                 <div class="chart-wrapper px-0" style="height:90px;" height="70">
                     <canvas id="widgetChart2"></canvas>
                 </div>

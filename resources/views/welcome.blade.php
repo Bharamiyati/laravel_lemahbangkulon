@@ -68,7 +68,7 @@
           <h3>Pemerintah Desa <span>Lemahbangkulon</span></h3>
         </div>
         <div class="row justify-content-center">
-            <img src="{{asset('images/struktur.jpg')}}" alt="">
+            <img src="{{asset('images/org.png')}}" alt="">
         </div>
     </section>
     <!-- End Team Section -->
@@ -103,9 +103,9 @@
 
           <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
-              <i class="bi bi-people-fill"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p> Jumlah Kepala Keluarga</p>
+              <i class="bi bi-person-lines-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{$tdkterdata}}" data-purecounter-duration="1" class="purecounter"></span>
+              <p> Jumlah Penduduk Tidak Terdata</p>
             </div>
           </div>
         </div>

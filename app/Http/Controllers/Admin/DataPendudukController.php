@@ -10,6 +10,7 @@ use App\keluarga;
 use App\pekerjaan;
 use App\rt;
 use App\rw;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File as FacadesFile;
@@ -24,10 +25,10 @@ class DataPendudukController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:data-list',['only'=>['index']]);
-        $this->middleware('permission:data-create',['only'=>['create', 'store']]);
-        $this->middleware('permission:data-edit',['only'=>['edit', 'update']]);
-        $this->middleware('permission:data-delete',['only'=>['destroy']]);  
+        $this->middleware('permission:data-list', ['only' => ['index']]);
+        $this->middleware('permission:data-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:data-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:data-delete', ['only' => ['destroy']]);
     }
 
     public function index()
@@ -36,8 +37,8 @@ class DataPendudukController extends Controller
         $pagename = 'Data Penduduk';
         $data = datapenduduk::all();
         $data = DB::table('datapenduduks')
-                ->orderBy('id', 'desc')
-                ->get();
+            ->orderBy('id', 'desc')
+            ->get();
         $jumlah = datapenduduk::count();
         $data_dusun = dusun::all();
         $data_rw = rw::all();
@@ -47,8 +48,23 @@ class DataPendudukController extends Controller
         $jeniskelamin = ["1", "0"];
         $statuspenduduk = ['1', '0'];
         $statuspernikahan = ['Belum', 'Sudah'];
-
         
+        //mengelompokkan usia dihitung berdasarkan antara tanggal lahir hingga tahun sekarang
+        $now = Carbon::now();
+        $dataPendudukTagllahir = datapenduduk::select('tanggal_lahir')->get();
+        $pendudukAge = [];
+        foreach ($dataPendudukTagllahir as $tgl) {
+            # code...
+            $dattgl = Carbon::parse($tgl->tanggal_lahir);
+            $age = $dattgl->diffInYears($now);
+            array_push($pendudukAge, $age);
+        }
+
+        $ageproduktiv = array_filter($pendudukAge, function ($value) {
+            return $value <= 40 && $value >= 20;
+        });
+      $ageParameter =   count($ageproduktiv);
+
         return view('admin.datapenduduk.index', compact('jumlah', 'data', 'data_dusun', 'data_rw', 'data_rt', 'pagename', 'status', 'jeniskelamin', 'statuspernikahan', 'statuspenduduk'));
     }
 
@@ -72,7 +88,7 @@ class DataPendudukController extends Controller
         $statuspenduduk = ['1', '0'];
         $statuspernikahan = ['Belum', 'Sudah'];
         $pagename = "Form Data Penduduk";
-        return view('admin.datapenduduk.create', compact('data_pekerjaan','data_dusun', 'data_kab','data_rw', 'data_rt', 'pagename', 'status', 'jeniskelamin', 'statuspernikahan', 'statuspenduduk'));
+        return view('admin.datapenduduk.create', compact('data_pekerjaan', 'data_dusun', 'data_kab', 'data_rw', 'data_rt', 'pagename', 'status', 'jeniskelamin', 'statuspernikahan', 'statuspenduduk'));
     }
 
     /**
@@ -102,18 +118,18 @@ class DataPendudukController extends Controller
         ]);
 
         $file = $request->file('photo');
-        if ($file == ''){
+        if ($file == '') {
             $nama_file = "";
         } else {
             $nama_file = time() . "_" . $file->getClientOriginalName();
 
-        //folder tujuan upload foto
-        $tujuan_upload = 'public/photo';
+            //folder tujuan upload foto
+            $tujuan_upload = 'public/photo';
 
-        //upload file
-        $file->move($tujuan_upload, $nama_file);
+            //upload file
+            $file->move($tujuan_upload, $nama_file);
         }
-        
+
 
         $data_penduduk = new datapenduduk([
             'foto' => $nama_file,
@@ -169,7 +185,7 @@ class DataPendudukController extends Controller
         $statuspernikahan = ['Belum', 'Sudah'];
         $pagename = 'Update Data';
         $data = datapenduduk::find($id);
-        return view('admin.datapenduduk.edit', compact('data_pekerjaan','data','data_kab', 'data_dusun', 'data_rw', 'data_rt', 'pagename', 'status', 'statuspernikahan', 'statuspenduduk', 'jeniskelamin'));
+        return view('admin.datapenduduk.edit', compact('data_pekerjaan', 'data', 'data_kab', 'data_dusun', 'data_rw', 'data_rt', 'pagename', 'status', 'statuspernikahan', 'statuspenduduk', 'jeniskelamin'));
     }
 
     /**
@@ -201,14 +217,14 @@ class DataPendudukController extends Controller
 
         $data_penduduk = datapenduduk::find($id);
 
-        $file = $request -> file('photo');
+        $file = $request->file('photo');
 
         if ($file == "") {
             $nama_file = $data_penduduk->foto;
         } else {
             $gambar = datapenduduk::where('id', $id)->first();
-            FacadesFile::delete('photo/'.$gambar->photo);
-            $nama_file = time()."_".$file->getClientOriginalName();
+            FacadesFile::delete('photo/' . $gambar->photo);
+            $nama_file = time() . "_" . $file->getClientOriginalName();
             //folder tujuan upload foto
             $tujuan_upload = 'photo';
             //upload file
@@ -262,9 +278,9 @@ class DataPendudukController extends Controller
         $data_meninggal->save();
 
         $gambar = datapenduduk::where('id', $id)->first();
-        FacadesFile::delete('photo'. $gambar->foto);
+        FacadesFile::delete('photo' . $gambar->foto);
         $datakeluarga = keluarga::find($id);
-        if($datakeluarga != null) {
+        if ($datakeluarga != null) {
             $datakeluarga->delete();
             return redirect('admin/datapenduduk')->with('sukses', 'Data berhasil dipindah');
         }

@@ -13,28 +13,6 @@
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-
-<!-- <div class="breadcrumbs">
-    <div class="col-sm-4">
-        <div class="page-header float-left">
-            <div class="page-title">
-                <h1>Dashboard</h1>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-8">
-        <div class="page-header float-right">
-            <div class="page-title">
-                <ol class="breadcrumb text-right">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Table</a></li>
-                    <li class="active">Data table</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
@@ -64,16 +42,12 @@
 
                                 @foreach($data as $i=>$row)
                                 <tr>
-
-                                <?php
-                                    $f = $row->foto;
-                                    $foto = asset($row->foto);
-                                    if ($f == NULL) {
-                                        $foto = asset('images/noimage.png');
-                                    }
-                                ;?>
                                     <td>{{++$i}}</td>
-                                    <td><img src="<?= $foto;?>"></td>
+                                    @empty($row->foto)
+                                    <td><img src="{{url('images/noimage.png')}}"></td>   
+                                    @else
+                                    <td><img src="{{url('public/photo/'.$row->foto)}}"></td>
+                                    @endempty
                                     <td>{{$row->nama_lengkap}}</td>
                                     <td>{{$row->nik}}</td>
                                     <td>{{$row->nomor_kk}}</td>

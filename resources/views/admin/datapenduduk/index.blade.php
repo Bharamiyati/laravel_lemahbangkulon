@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
@@ -16,6 +14,7 @@
                         <a href="{{route('datapenduduk.create')}}" class="btn btn-success pull-right"> Tambah Data </a>
                         @endcan
                     </div>
+                    
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -40,11 +39,6 @@
                                     @foreach($data as $i=>$row)
                                     <tr>
                                         <?php
-                                            $f = $row->foto;
-                                            $foto = asset($row->foto);
-                                            if ($f == NULL) {
-                                                $foto = asset('images/noimage.png');
-                                            }
                                             $st = "Ya";
                                             if ($row->status == "0") {
                                                 $st = "Tidak";
@@ -93,7 +87,11 @@
                                             };
                                         ?>
                                         <td>{{++$i}}</td>
-                                        <td><img src="<?php echo $foto; ?>"></td>
+                                        @empty($row->foto)
+                                        <td><img src="{{url('images/noimage.png')}}"></td>   
+                                        @else
+                                        <td><img src="{{url('public/photo/'.$row->foto)}}"></td>
+                                        @endempty
                                         <td>{{$row->nama_lengkap}}</td>
                                         <td>{{$row->nik}}</td>
                                         <td>{{$row->nomor_kk}}</td>
@@ -108,6 +106,7 @@
                                             $sp = "Belum";
                                         }; ?>
                                         <td>{{$sp}}</td>
+                                        @can('data-edit')
                                         <td>
                                             <div class="dropdown show">
                                                 <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -135,7 +134,7 @@
                                                 </div>
                                             </div>
                                         </td>
-
+                                        @endcan
                                     </tr>
                                     @endforeach
                                 </tbody>

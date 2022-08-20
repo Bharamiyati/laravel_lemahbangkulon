@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\datapenduduk;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -90,8 +91,34 @@ class DashboardController extends Controller
         $lain = DB::table('datapenduduks AS a')->where('a.pekerjaan', '=', '14')->count();
         $belum = DB::table('datapenduduks AS a')->where('a.pekerjaan', '=', '15')->count();
 
+        //mengelompokkan usia dihitung berdasarkan antara tanggal lahir hingga tahun sekarang
+        $now = Carbon::now();
+        $dptgllhr = datapenduduk::select('tanggal_lahir')->get();
+        $usiapenduduk = [];
+        foreach ($dptgllhr as $tgl) {
+            $datatgl = Carbon::parse($tgl->tanggal_lahir);
+            $usia = $datatgl->diffInYears($now);
+            array_push($usiapenduduk, $usia);
+        }
+
+        $usiaproduktiv = array_filter($usiapenduduk, function ($value) {
+            return $value <= 40 && $value >= 20;
+        });
+        $usiap = count($usiaproduktiv);
+
+        $usiabalita = array_filter($usiapenduduk, function ($value) {
+            return $value <= 5 && $value >=0;
+        });
+        $usiab = count($usiabalita);
+
+        $usiasekolah = array_filter($usiapenduduk, function ($value) {
+            return $value <=19 && $value >=6;
+        });
+        $usias = count($usiasekolah);
 
         return view('admin.dashboard', compact(
+                'usiap',
+                'usiab',
                 'pns',
                 'wiraswasta',
                 'guru',

@@ -42,16 +42,12 @@
 
                                 @foreach($data as $i=>$row)
                                 <tr>
-
-                                <?php 
-                                    $f = $row->foto;
-                                    $foto = asset($row->foto);
-                                    if ($f == NULL) {
-                                        $foto = asset('images/noimage.png');
-                                    }
-                                ;?>
                                     <td>{{++$i}}</td>
-                                    <td><img src="<?= $foto;?>"></td>
+                                    @empty($row->foto)
+                                    <td><img src="{{url('images/noimage.png')}}"></td>   
+                                    @else
+                                    <td><img src="{{url('public/photo/'.$row->foto)}}"></td>
+                                    @endempty
                                     <td>{{$row->nama_lengkap}}</td>
                                     <td>{{$row->nik}}</td>
                                     <td>{{$row->nomor_kk}}</td>

@@ -19,7 +19,10 @@ Route::get('/', function () {
     $jumlah = DB::table('datapenduduks')->count();
     $jumlahkk = DB::table('datapenduduks')->where('datapenduduks.status', '=', '1')->count();
     $terdata = DB::table('datapenduduks')->where('datapenduduks.status_penduduk', '=', '1')->count();
-    return view('welcome', compact('jumlah', 'jumlahkk', 'terdata'));
+    $tdkterdata = DB::table('datapenduduks')->where('datapenduduks.status_penduduk', '=', '0')->count();
+
+    
+    return view('welcome', compact('jumlah', 'jumlahkk', 'terdata', 'tdkterdata'));
 });
 
 Auth::routes();
