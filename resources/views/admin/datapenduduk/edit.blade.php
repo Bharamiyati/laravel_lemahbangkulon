@@ -131,8 +131,8 @@
                                     <label for="select" class=" form-control-label">Tempat Lahir</label>
                                     <select name="txt_tmptlhr" id="selectkab" class="form-control" required>
                                         @foreach($data_kab as $kab)
-                                        <option value={{$kab->id}} 
-                                            @if($kab->id==$data->tempat_lahir)
+                                        <option value="{{$kab->nama_kab}}" 
+                                            @if($kab->nama_kab==$data->tempat_lahir)
                                                 selected
                                             @endif
                                             >{{$kab->nama_kab}}</option>
@@ -154,8 +154,8 @@
                                     <label for="select" class=" form-control-label">RT</label>
                                     <select name="option_rt" id="select" class="form-control" required>
                                         @foreach($data_rt as $rt)
-                                        <option value={{$rt->id}} 
-                                            @if($rt->id==$data->RT)
+                                        <option value="{{$rt->rt}}" 
+                                            @if($rt->rt==$data->RT)
                                                 selected
                                             @endif
                                             >{{$rt->rt}}</option>
@@ -168,8 +168,8 @@
                                     <label for="select" class=" form-control-label">RW</label>
                                     <select name="option_rw" id="select" class="form-control" required>
                                         @foreach($data_rw as $rw)
-                                        <option value={{$rw->id}} 
-                                            @if($rw->id==$data->RW)
+                                        <option value="{{$rw->rw}}" 
+                                            @if($rw->rw==$data->RW)
                                                 selected
                                             @endif
                                             >{{$rw->rw}}</option>
@@ -182,8 +182,8 @@
                                     <label for="select" class=" form-control-label">Dusun</label>
                                     <select name="option_dusun" id="select" class="form-control" required>
                                         @foreach($data_dusun as $datadusun)
-                                        <option value={{$datadusun->id}} 
-                                            @if($datadusun->id==$data->alamat_dusun)
+                                        <option value="{{$datadusun->nama_dusun}}" 
+                                            @if($datadusun->nama_dusun==$data->alamat_dusun)
                                                 selected
                                             @endif
                                             >{{$datadusun->nama_dusun}}</option>
@@ -212,8 +212,9 @@
                                         <label for="select" class=" form-control-label">Pekerjaan</label>
                                         <select name="option_pekerjaan" id="select" class="form-control" required>
                                             @foreach($data_pekerjaan as $pekerjaan)
-                                            <option value={{$pekerjaan->id}} @if($pekerjaan->id==$data->pekerjaan)
-                                                selected
+                                            <option value="{{$pekerjaan->jenis_pekerjaan}}" 
+                                                @if($pekerjaan->jenis_pekerjaan==$data->pekerjaan)
+                                                    selected
                                                 @endif
                                                 >{{$pekerjaan->jenis_pekerjaan}}</option>
                                             @endforeach
@@ -227,9 +228,9 @@
                                     <select name="option_statuspenduduk" id="select" class="form-control" required>
                                         @foreach($statuspenduduk as $statuspenduduk)
                                         <option value={{$statuspenduduk}} <?php
-                                                                            $p = "Terdata";
+                                                                            $p = "Lokal";
                                                                             if ($statuspenduduk == '0') {
-                                                                                $p = "Belum";
+                                                                                $p = "Pendatang";
                                                                             }; ?> @if($statuspenduduk==$data->status)
                                             selected
                                             @endif

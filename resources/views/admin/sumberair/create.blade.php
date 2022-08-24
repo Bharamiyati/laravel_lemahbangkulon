@@ -43,7 +43,7 @@
                         </div>
                     @endif
                     <div class="card-header">
-                        <strong>Masukkan Data Dusun</strong>
+                        <strong>{{$pagename}}</strong>
                     </div>
                     <div class="card-body card-block">
                         @if($errors->any())
@@ -57,11 +57,11 @@
                             </div>
                         </div>
                         @endif
-                        <form action="{{route('dusun.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="{{route('sumberair.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                             @csrf
                             <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Dusun</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txt_dusun" placeholder="Masukkan Nama Dusun" class="form-control"><small class="form-text text-muted"></small></div>
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">kategori Sumber Air</label></div>
+                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txt_sumberair" placeholder="Masukkan Kategori Sumber Air" class="form-control"><small class="form-text text-muted"></small></div>
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-success btn-sm">

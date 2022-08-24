@@ -47,44 +47,6 @@
                                             if ($row->jenis_kelamin == 0) {
                                                 $jk = "Wanita";
                                             };
-
-                                            $d = 'Krajan Lor';
-                                            if ($row->alamat_dusun == 2) {
-                                                $d = 'Krajan Kidul';
-                                            } elseif ($row->alamat_dusun == 3) {
-                                                $d = 'Sukorejo';
-                                            } elseif ($row->alamat_dusun == 4) {
-                                                $d = 'Talangrejo';
-                                            } elseif ($row->alamat_dusun == 5) {
-                                                $d = 'Barurejo';
-                                            };
-
-                                            $p = 'PNS';
-                                            if ($row->pekerjaan == 2) {
-                                                $p = 'Wiraswasta';
-                                            } elseif ($row->pekerjaan == 5) {
-                                                $p = 'Guru';
-                                            } elseif ($row->pekerjaan == 6) {
-                                                $p = 'Petani';
-                                            } elseif ($row->pekerjaan == 7) {
-                                                $p = 'Tenaga Medis';
-                                            } elseif ($row->pekerjaan == 8) {
-                                                $p = 'Karyawan Swasta';
-                                            } elseif ($row->pekerjaan == 9) {
-                                                $p = 'Peternak';
-                                            } elseif ($row->pekerjaan == 10) {
-                                                $p = 'Nelayan';
-                                            } elseif ($row->pekerjaan == 11) {
-                                                $p = 'Sopir';
-                                            } elseif ($row->pekerjaan == 12) {
-                                                $p = 'Pegawai BUMN';
-                                            } elseif ($row->pekerjaan == 13) {
-                                                $p = 'Pelajar/Mahasiswa';
-                                            } elseif ($row->pekerjaan == 14) {
-                                                $p = 'Lain-lain';
-                                            } elseif ($row->pekerjaan == 15) {
-                                                $p = 'Belum Bekerja';
-                                            };
                                         ?>
                                         <td>{{++$i}}</td>
                                         @empty($row->foto)
@@ -97,13 +59,13 @@
                                         <td>{{$row->nomor_kk}}</td>
                                         <td>{{$st}}</td>
                                         <td>{{$jk}}</td>
-                                        <td>{{$d}}</td>
+                                        <td>{{$row->alamat_dusun}}</td>
                                         <td>{{$row->status_perkawinan}}</td>
-                                        <td>{{$p}}</td>
+                                        <td>{{$row->pekerjaan}}</td>
                                         <?php
-                                        $sp = "Terdata";
+                                        $sp = "Lokal";
                                         if ($row->status_penduduk == 0) {
-                                            $sp = "Belum";
+                                            $sp = "Pendatang";
                                         }; ?>
                                         <td>{{$sp}}</td>
                                         @can('data-edit')

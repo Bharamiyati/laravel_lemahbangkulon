@@ -43,7 +43,7 @@
                         </div>
                     @endif
                     <div class="card-header">
-                        <strong>Masukkan Data Dusun</strong>
+                        <strong>{{$pagename}}</strong>
                     </div>
                     <div class="card-body card-block">
                         @if($errors->any())
@@ -57,12 +57,12 @@
                             </div>
                         </div>
                         @endif
-                        <form action="{{route('dusun.update', $data_dusun->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="{{route('tempattinggal.update', $data->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @method('PATCH')    
                         @csrf
                             <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Dusun</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data_dusun->dusun}}" name="txt_dusun" placeholder="Masukkan nama dusun" class="form-control"><small class="form-text text-muted"></small></div>
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Kategori Tempat Tinggal</label></div>
+                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data->status}}" name="txt_tempattinggal" placeholder="Masukkan kategori Tempat tinggal" class="form-control"><small class="form-text text-muted"></small></div>
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-success btn-sm">

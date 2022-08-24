@@ -41,6 +41,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('/alamat', 'Admin\AlamatController');
     Route::resource('/roles', 'Admin\RoleController');
     Route::resource('/users', 'Admin\UserController');
+    Route::resource('/aset', 'Admin\AsetController');
+    Route::resource('/pendapatan', 'Admin\PendapatanController');
+    Route::resource('/listrik', 'Admin\ListrikController');
+    Route::resource('/pekerjaan', 'Admin\PekerjaanController');
+    Route::resource('/bahanbakar', 'Admin\BahanbakarController');
+    Route::resource('/tempattinggal', 'Admin\TempattinggalController');
+    Route::resource('/sumberair', 'Admin\SumberAirController');
 });
 
 

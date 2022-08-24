@@ -18,6 +18,13 @@
                      @role('admin')
                      <a href="{{ url ('/admin/roles')}}"> <i class="menu-icon fa fa-briefcase text-light"></i>Role User </a>
                      <a href="{{ url ('/admin/users')}}"> <i class="menu-icon fa fa-user-circle text-light"></i>User </a>
+                     <a href="{{ route ('aset.index')}}"> <i class="menu-icon fa fa-user-circle text-light"></i>kategori Aset </a>
+                     <a href="{{ route ('bahanbakar.index')}}"> <i class="menu-icon fa fa-user-circle text-light"></i>kategori bahan Bakar memasak </a>
+                     <a href="{{ route ('listrik.index')}}"> <i class="menu-icon fa fa-user-circle text-light"></i>kategori Listrik </a>
+                     <a href="{{ route ('pekerjaan.index')}}"> <i class="menu-icon fa fa-user-circle text-light"></i>kategori Pekerjaan </a>
+                     <a href="{{ route ('pendapatan.index')}}"> <i class="menu-icon fa fa-user-circle text-light"></i>kategori Pendapatan </a>
+                     <a href="{{ route ('sumberair.index')}}"> <i class="menu-icon fa fa-user-circle text-light"></i>kategori Sumber Air </a>
+                     <a href="{{ route ('tempattinggal.index')}}"> <i class="menu-icon fa fa-user-circle text-light"></i>kategori Tempat Tinggal </a>
                      @endrole
                  </li>
              </ul>

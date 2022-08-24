@@ -164,7 +164,7 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mb-3">Keluarga Pra Sehat</h4>
+                            <h4 class="mb-3">Peserta JKN</h4>
                             <h1 id="jkn" style="display: none;">{{$jkn}}</h1>
                             <h1 id="jknx" style="display: none;" >{{$jknx}}</h1>
                             <canvas id="jamkesmas"></canvas>
@@ -290,20 +290,20 @@
             datasets: [ {
                 data: [ terdata, belumterdata],
                 backgroundColor: [
-                                    "rgba(0, 56, 255, 0.68)",
-                                    "rgba(0, 47, 255, 0.4)",
+                                    "rgb(111, 237, 214)",
+                                    "rgb(255, 74, 74)",
                                     
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(0, 56, 255, 0.68)",
-                                    "rgba(0, 47, 255, 0.4)",
+                                    "rgb(111, 237, 214)",
+                                    "rgb(255, 74, 74)",
                                     
                                 ]
 
                             } ],
             labels: [
-                            "terdata",
-                            "tidak terdata",
+                            "Lokal",
+                            "pendatang",
                             
                         ]
         },
@@ -323,14 +323,13 @@
             datasets: [ {
                 data: [ jkn, jknx],
                 backgroundColor: [
-                                    "rgba(0, 255, 0, 0.86)",
-                                    "rgba(0, 255, 0, 0.43)",
+                                    "rgb(39, 123, 192)",
+                                    "rgb(255, 203, 66)",
                                     
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(0, 255, 0, 0.86)",
-                                    "rgba(0, 255, 0, 0.43)",
-                                    
+                                    "rgb(39, 123, 192)",
+                                    "rgb(255, 203, 66)",
                                 ]
 
                             } ],
@@ -356,13 +355,13 @@
             datasets: [ {
                 data: [ pkh, pkhx],
                 backgroundColor: [
-                                    "rgba(255, 255, 0, 1)",
-                                    "rgba(255, 255, 0, 0.58)",
+                                    "rgb(26, 77, 46)",
+                                    "rgb(255, 159, 41)",
                                     
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(255, 255, 0, 1)",
-                                    "rgba(255, 255, 0, 0.58)",
+                                    "rgb(26, 77, 46)",
+                                    "rgb(255, 159, 41)",
                                     
                                 ]
 
@@ -390,15 +389,15 @@
             datasets: [ {
                 data: [ air, airx, airz],
                 backgroundColor: [
-                                    "rgba(255, 151, 0, 0.87)",
-                                    "rgba(255, 151, 0, 0.58)",
-                                    "rgba(255, 151, 0, 0.30)"
+                                    "rgb(97, 164, 188)",
+                                    "rgb(91, 125, 177)",
+                                    "rgb(26, 19, 47)"
                                     
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(255, 151, 0, 0.87)",
-                                    "rgba(255, 151, 0, 0.58)",
-                                    "rgba(255, 151, 0, 0.30)"
+                                    "rgb(97, 164, 188)",
+                                    "rgb(91, 125, 177)",
+                                    "rgb(26, 19, 47)"
                                     
                                 ]
 
@@ -427,15 +426,15 @@
             datasets: [ {
                 data: [ mck, mckx, mckz],
                 backgroundColor: [
-                                    "rgba(255, 0, 242, 0.99)",
-                                    "rgba(255, 0, 242, 0.6)",
-                                    "rgba(255, 0, 242, 0.3)",
+                                    "rgb(63, 167, 150)",
+                                    "rgb(254, 194, 96)",
+                                    "rgb(161, 0, 53)",
                                     
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(255, 0, 242, 0.99)",
-                                    "rgba(255, 0, 242, 0.6)",
-                                    "rgba(255, 0, 242, 0.3)",
+                                    "rgb(63, 167, 150)",
+                                    "rgb(254, 194, 96)",
+                                    "rgb(161, 0, 53)",
                                 ]
 
                             } ],
@@ -463,15 +462,15 @@
             datasets: [ {
                 data: [ aset, asetx, asetz],
                 backgroundColor: [
-                                    "rgba(253, 28, 28, 0.8)",
-                                    "rgba(253, 28, 28, 0.5)",
-                                    "rgba(253, 28, 28, 0.2)",
+                                    "rgb(255, 30, 0)",
+                                    "rgb(89, 206, 143)",
+                                    "rgb(232, 249, 253)",
                                     
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(253, 28, 28, 0.8)",
-                                    "rgba(253, 28, 28, 0.5)",
-                                    "rgba(253, 28, 28, 0.2)",
+                                    "rgb(255, 30, 0)",
+                                    "rgb(89, 206, 143)",
+                                    "rgb(232, 249, 253)",
                                 ]
 
                             } ],
@@ -499,16 +498,16 @@
             datasets: [ {
                 data: [ pendapatan, pendapatanx, pendapatanz],
                 backgroundColor: [
-                                    "rgba(181, 0, 252, 0.8)",
-                                    "rgba(181, 0, 252, 0.5)",
-                                    "rgba(181, 0, 252, 0.2)",
+                                    "rgb(111, 237, 214)",
+                                    "rgb(255, 149, 81)",
+                                    "rgb(255, 74, 74)",
                                    
                                     
                                 ],
                 hoverBackgroundColor: [
-                                     "rgba(181, 0, 252, 0.8)",
-                                    "rgba(181, 0, 252, 0.5)",
-                                    "rgba(181, 0, 252, 0.2)",
+                                     "rgb(111, 237, 214)",
+                                    "rgb(255, 149, 81)",
+                                    "rgb(255, 74, 74)",
                                 ]
 
                             } ],
@@ -536,15 +535,15 @@
             datasets: [ {
                 data: [ tempattinggal, tempattinggalx, tempattinggalz],
                 backgroundColor: [
-                                    "rgba(149, 76, 0, 0.8)",
-                                    "rgba(149, 76, 0, 0.5)",
-                                    "rgba(149, 76, 0, 0.2)",
+                                    "rgb(239, 91, 12)",
+                                    "rgb(0, 56, 101)",
+                                    "rgb(60, 207, 78)",
                                     
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(149, 76, 0, 0.8)",
-                                    "rgba(149, 76, 0, 0.5)",
-                                    "rgba(149, 76, 0, 0.2)",
+                                    "rgb(239, 91, 12)",
+                                    "rgb(0, 56, 101)",
+                                    "rgb(60, 207, 78)",
                                 ]
 
                             } ],
@@ -572,15 +571,15 @@
             datasets: [ {
                 data: [ listrik, listrikx, listrikz],
                 backgroundColor: [
-                                    "rgba(0, 255, 0, 0.9)",
-                                    "rgba(0, 255, 0, 0.5)",
-                                    "rgba(0, 255, 0, 0.2)"
+                                    "rgb(254, 219, 57)",
+                                    "rgb(28, 214, 206)",
+                                    "rgb(214, 28, 78)"
                                     
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(0, 255, 0, 0.9)",
-                                    "rgba(0, 255, 0, 0.5)",
-                                    "rgba(0, 255, 0, 0.2)"
+                                    "rgb(254, 219, 57)",
+                                    "rgb(28, 214, 206)",
+                                    "rgb(214, 28, 78)"
                                 ]
 
                             } ],
@@ -608,15 +607,15 @@
             datasets: [ {
                 data: [ bahan, bahanx, bahanz],
                 backgroundColor: [
-                                    "rgba(0, 56, 255, 0.68)",
-                                    "rgba(0, 56, 255, 0.2)",
-                                    "rgba(0, 47, 255, 0.4)",
+                                    "rgb(235, 83, 83)",
+                                    "rgb(249, 217, 35)",
+                                    "rgb(54, 174, 124)",
                                     
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(0, 56, 255, 0.68)",
-                                    "rgba(0, 56, 255, 0.2)",
-                                    "rgba(0, 47, 255, 0.4)",
+                                    "rgb(235, 83, 83)",
+                                    "rgb(249, 217, 35)",
+                                    "rgb(54, 174, 124)",
                                 ]
 
                             } ],

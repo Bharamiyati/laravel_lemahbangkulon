@@ -129,7 +129,9 @@
                                     <select name="txt_tmptlhr" id="selectkab" class="form-control" required>
                                         <option value=""></option>
                                         @foreach($data_kab as $data)
-                                        <option value={{$data->id}}>{{$data->nama_kab}}</option>
+                                        <option value="{{$data->nama_kab}}">
+                                            {{$data->nama_kab}}
+                                        </option>
                                         @endforeach
                                     </select>
                                     <div class="invalid-feedback">wajib diisi</div>
@@ -148,7 +150,7 @@
                                     <select name="option_dusun" id="select" class="form-control" required>
                                         <option value=""></option>
                                         @foreach($data_dusun as $dusun)
-                                        <option value={{$dusun->id}}>{{$dusun->nama_dusun}}</option>
+                                        <option value="{{$dusun->nama_dusun}}">{{$dusun->nama_dusun}}</option>
                                         @endforeach
                                     </select>
                                     <div class="invalid-feedback">Wajib Diisi</div>
@@ -159,7 +161,7 @@
                                     <select name="option_rw" id="select" class="form-control" required>
                                         <option value=""></option>
                                         @foreach($data_rw as $rw)
-                                        <option value={{$rw->id}}>{{$rw->rw}}</option>
+                                        <option value="{{$rw->rw}}">{{$rw->rw}}</option>
 
                                         @endforeach
                                     </select>
@@ -171,7 +173,7 @@
                                     <select name="option_rt" id="select" class="form-control" required>
                                         <option value=""></option>
                                         @foreach($data_rt as $rt)
-                                        <option value={{$rt->id}}>{{$rt->rt}}</option>
+                                        <option value="{{$rt->rt}}">{{$rt->rt}}</option>
 
                                         @endforeach
                                     </select>
@@ -196,7 +198,7 @@
                                     <select name="option_pekerjaan" id="select" class="form-control" required>
                                         <option value=""></option>
                                         @foreach($data_pekerjaan as $pekerjaan)
-                                            <option value={{$pekerjaan->id}}>{{$pekerjaan->jenis_pekerjaan}}</option>
+                                            <option value="{{$pekerjaan->jenis_pekerjaan}}">{{$pekerjaan->jenis_pekerjaan}}</option>
                                         @endforeach
                                     </select>
                                     <div class="invalid-feedback">Wajib Diisi</div>
@@ -209,9 +211,9 @@
                                        
                                         @foreach($statuspenduduk as $statuspenduduk)
                                         <?php
-                                            $sp = "Terdata"; 
+                                            $sp = "Lokal"; 
                                             if ($statuspenduduk == "0") {
-                                                $sp = "Belum";
+                                                $sp = "Pendatang";
                                             }
                                         ?>
                                         <option value={{$statuspenduduk}}><?= $sp ?></option>

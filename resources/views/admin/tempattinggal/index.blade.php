@@ -22,24 +22,20 @@
                     <div class="card-header">
                         <strong class="card-title">{{$pagename}}</strong>
                         @can('data-create')
-                        <a href="{{route('alamat.create')}}" class="btn btn-success pull-right"> Tambah Data </a>
+                        <a href="{{route('tempattinggal.create')}}" class="btn btn-success pull-right"> Tambah Data </a>
                         @endcan
                     </div>
                     <div class="card-body">
-                        <table id="bootstrap-data-table-export" class="table table-success table-striped table-bordered">
+                        <table id="bootstrap-data-table-export" class="table table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>RT</th>
-                                    <th>Ketua RT</th>
-                                    <th>RW</th>
-                                    <th>Ketua RW</th>
-                                    <th>Dusun</th>
-                                    <th>Kepala Dusun</th>
+                                    <th>Nomor</th>
+                                    <th>Kategori Tempat Tinggal</th>
                                     @can('data-edit')
                                     <th>Edit</th>
                                     @endcan
                                     @can('data-delete')
-                                    <th>Status</th>
+                                    <th>Delete</th>
                                     @endcan
                                 </tr>
                             </thead>
@@ -47,18 +43,14 @@
 
                                 @foreach($data as $i=>$row)
                                 <tr>
-                                    <td>{{$row->rt}}</td>
-                                    <td>{{$row->nama_ketua_rt}}</td>
-                                    <td>{{$row->rw}}</td>
-                                    <td>{{$row->nama_ketua_rw}}</td>
-                                    <td>{{$row->dusun}}</td>
-                                    <td>{{$row->nama_kepala_dusun}}</td>
+                                    <td>{{++$i}}</td>
+                                    <td>{{$row->status}}</td>
                                     @can('data-edit')
-                                    <td><a href="{{route('alamat.edit', $row->id)}}" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                                    <td><a href="{{route('tempattinggal.edit', $row->id)}}" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                                     @endcan
                                     @can('data-delete')
                                     <td>
-                                        <form action="{{route ('alamat.destroy',$row->id)}}" method="post" style="z-index: -1;">
+                                        <form action="{{route ('tempattinggal.destroy',$row->id)}}" method="post" style="z-index: -1;">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" >Hapus</button>

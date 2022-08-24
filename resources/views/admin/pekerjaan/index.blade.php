@@ -22,20 +22,20 @@
                     <div class="card-header">
                         <strong class="card-title">{{$pagename}}</strong>
                         @can('data-create')
-                        <a href="{{route('dusun.create')}}" class="btn btn-success pull-right"> Tambah Data </a>
+                        <a href="{{route('pekerjaan.create')}}" class="btn btn-success pull-right"> Tambah Data </a>
                         @endcan
                     </div>
                     <div class="card-body">
-                        <table id="bootstrap-data-table-export" class="table table-success table-striped table-bordered">
+                        <table id="bootstrap-data-table-export" class="table table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Dusun</th>
+                                    <th>Kategori Pekerjaan</th>
                                     @can('data-edit')
                                     <th>Edit</th>
                                     @endcan
                                     @can('data-delete')
-                                    <th>Status</th>
+                                    <th>Delete</th>
                                     @endcan
                                 </tr>
                             </thead>
@@ -44,13 +44,13 @@
                                 @foreach($data as $i=>$row)
                                 <tr>
                                     <td>{{++$i}}</td>
-                                    <td>{{$row->dusun}}</td>
+                                    <td>{{$row->jenis_pekerjaan}}</td>
                                     @can('data-edit')
-                                    <td><a href="{{route('dusun.edit', $row->id)}}" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                                    <td><a href="{{route('pekerjaan.edit', $row->id)}}" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                                     @endcan
                                     @can('data-delete')
                                     <td>
-                                        <form action="{{route ('dusun.destroy',$row->id)}}" method="post" style="z-index: -1;">
+                                        <form action="{{route ('pekerjaan.destroy',$row->id)}}" method="post" style="z-index: -1;">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" >Hapus</button>

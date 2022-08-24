@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\datakeluarga;
-use App\datapenduduk;
-use App\datapindah;
 use App\Http\Controllers\Controller;
-use App\keluarga;
+use App\pekerjaan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 
-class PindahController extends Controller
+class PekerjaanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,6 +16,9 @@ class PindahController extends Controller
     public function index()
     {
         //
+        $pagename = 'halaman kategori pekerjaan';
+        $data = pekerjaan::all();
+        return view('admin.pekerjaan.index', compact('pagename', 'data'));
     }
 
     /**
@@ -30,6 +29,9 @@ class PindahController extends Controller
     public function create()
     {
         //
+        $pagename = 'Form kategori pekerjaan';
+        $data = pekerjaan::all();
+        return view('admin.pekerjaan.create', compact('pagename', 'data'));
     }
 
     /**
@@ -41,6 +43,15 @@ class PindahController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'txt_pekerjaan' => 'required'
+        ]);
+
+        $data = new pekerjaan();
+        $data->jenis_pekerjaan = $request->txt_pekerjaan;
+
+        $data->save();
+        return redirect('admin/pekerjaan');
     }
 
     /**
@@ -63,6 +74,9 @@ class PindahController extends Controller
     public function edit($id)
     {
         //
+        $pagename = 'Form kategori Pekerjaan';
+        $data = pekerjaan::find($id);
+        return view('admin.pekerjaan.edit', compact('pagename', 'data'));
     }
 
     /**
@@ -75,6 +89,15 @@ class PindahController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'txt_pekerjaan' => 'required'
+        ]);
+
+        $data = pekerjaan::find($id);
+        $data->jenis_pekerjaan = $request->get('txt_pekerjaan');
+
+        $data->save();
+        return redirect('admin/pekerjaan');
     }
 
     /**
@@ -86,31 +109,8 @@ class PindahController extends Controller
     public function destroy($id)
     {
         //
-        $data = datapenduduk::find($id);
-
-        $data_pindah = new datapindah([
-            'foto' => $data->foto,
-            'nama_lengkap' => $data->nama_lengkap,
-            'nik' => $data->nik,
-            'nomor_kk' => $data->nomor_kk,
-            'jenis_kelamin' => $data->jenis_kelamin,
-            'tempat_lahir' => $data->tempat_lahir,
-            'tanggal_lahir' => $data->tanggal_lahir,
-            'RT' => $data->RT,
-            'RW' => $data->RW,
-            'alamat_dusun' => $data->alamat_dusun,
-            'status_perkawinan' => $data->status_perkawinan,
-            'pekerjaan' => $data->pekerjaan,
-        ]);
-        
-        $data_pindah->save();
-        $gambar = datapenduduk::where('id',$id)->first();
-        File::delete('photo'.$gambar->foto);
-        $datakeluarga = keluarga::where('id_dp', $data->id);
-        if ($datakeluarga != null) {
-            $datakeluarga->delete();
-        }
+        $data=pekerjaan::find($id);
         $data->delete();
-        return redirect('admin/datapenduduk')->with('sukses', 'Data berhasil Dihapus');
+        return redirect()->route('pekerjaan.index');
     }
 }

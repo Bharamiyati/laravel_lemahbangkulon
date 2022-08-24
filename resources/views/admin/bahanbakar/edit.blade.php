@@ -43,7 +43,7 @@
                         </div>
                     @endif
                     <div class="card-header">
-                        <strong>Masukkan Data Alamat</strong>
+                        <strong>{{$pagename}}</strong>
                     </div>
                     <div class="card-body card-block">
                         @if($errors->any())
@@ -57,35 +57,16 @@
                             </div>
                         </div>
                         @endif
-                        <form action="{{route('alamat.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                            @csrf
+                        <form action="{{route('bahanbakar.update', $data->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        @method('PATCH')    
+                        @csrf
                             <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">RT</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txt_rt" placeholder="Masukkan RT" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama Ketua RT</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txt_ketuart" placeholder="Masukkan Nama Ketua RT" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">RW</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txt_rw" placeholder="Masukkan RW" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama Ketua RW</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txt_ketuarw" placeholder="Masukkan Nama Ketua RW" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Dusun</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txt_dusun" placeholder="Masukkan Nama Dusun" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Kepala Dusun</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="txt_kepaladusun" placeholder="Masukkan Nama Kepala Dusun" class="form-control"><small class="form-text text-muted"></small></div>
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Kategori Bahan Bakar</label></div>
+                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data->jenis}}" name="txt_bahan" placeholder="Masukkan kategori Bahan Bakar" class="form-control"><small class="form-text text-muted"></small></div>
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-success btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Simpan Data
+                                    <i class="fa fa-dot-circle-o"></i> Update Data
                                 </button>
                                 <button type="reset" class="btn btn-danger btn-sm">
                                     <i class="fa fa-ban"></i> Reset

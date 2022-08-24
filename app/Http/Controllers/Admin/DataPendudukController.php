@@ -258,8 +258,9 @@ class DataPendudukController extends Controller
      */
     public function destroy($id)
     {
+        
         $data = datapenduduk::find($id);
-
+        
         $data_meninggal = new datameninggal([
             'foto' => $data->foto,
             'nama_lengkap' => $data->nama_lengkap,
@@ -276,13 +277,11 @@ class DataPendudukController extends Controller
         ]);
 
         $data_meninggal->save();
-
         $gambar = datapenduduk::where('id', $id)->first();
         FacadesFile::delete('photo' . $gambar->foto);
-        $datakeluarga = keluarga::find($id);
+        $datakeluarga = keluarga::where('id_dp', $data->id);
         if ($datakeluarga != null) {
             $datakeluarga->delete();
-            return redirect('admin/datapenduduk')->with('sukses', 'Data berhasil dipindah');
         }
         $data->delete();
         return redirect('admin/datapenduduk')->with('sukses', 'Data berhasil dipindah');

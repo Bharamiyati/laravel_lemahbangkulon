@@ -51,88 +51,17 @@
                                     $pkh = "-";
 
                                     if ($row->peserta_jkn == '1') {
-                                        $jkn = "Sudah";
+                                        $jkn = "Peserta";
                                     } elseif ($row->peserta_jkn == '0') {
-                                        $jkn = "Belum";
+                                        $jkn = "Bukan Peserta";
                                     }
 
                                     if ($row->peserta_pkh == '1') {
-                                        $pkh = "Sudah";
+                                        $pkh = "Peserta";
                                     } elseif ($row->peserta_pkh == '0') {
-                                        $pkh = "Belum";
+                                        $pkh = "Bukan Peserta";
                                     };
 
-                                    $air = '-';
-                                    $mck = '-';
-                                    $aset = '-';
-                                    $pendapatan = '-';
-                                    $tempat = '-';
-                                    $listrik = '-';
-                                    $bahan = '-';
-
-                                    if ($row->sumber_air == 1) {
-                                        $air = 'Tidak terlindungi';
-                                    } elseif ($row->sumber_air == 2) {
-                                        $air = 'Sumber Terlindungi/Sumur';
-                                    } elseif ($row->sumber_air == 3) {
-                                        $air = 'PDAM';
-                                    };
-
-                                    if ($row->fasilitas_mck == 1) {
-                                        $mck = 'Tidak Punya/Sungai';
-                                    } elseif ($row->fasilitas_mck == 2) {
-                                        $mck = 'Milik Bersama';
-                                    } elseif ($row->fasilitas_mck == 3) {
-                                        $mck = 'Milik Sendiri';
-                                    };
-
-                                    if ($row->nilai_aset == 1) {
-                                        $aset = '< 500000';
-                                    } elseif ($row->nilai_aset == 2) {
-                                        $aset = '500000 - 1000000';
-                                    } elseif ($row->nilai_aset == 3) {
-                                        $aset = '> 1000000';
-                                    };
-
-                                    if ($row->pendapatan == 1) {
-                                        $pendapatan = '< 500000';
-                                    } elseif ($row->pendapatan == 2) {
-                                        $pendapatan = '500000 - 1000000';
-                                    } elseif ($row->pendapatan == 3) {
-                                        $pendapatan = '> 1000000';
-                                    };
-
-                                    if ($row->tempat_tinggal == 1) {
-                                        $tempat = 'Numpang Karang';
-                                    } elseif ($row->tempat_tinggal == 2) {
-                                        $tempat = 'Kontrak/Sewa';
-                                    } elseif ($row->tempat_tinggal == 3) {
-                                        $tempat = 'Milik Sendiri';
-                                    };
-
-                                    if ($row->listrik == 1) {
-                                        $listrik = '< 450 Watt';
-                                    } elseif ($row->listrik == 2) {
-                                        $listrik = '450 Watt - 900 Watt';
-                                    } elseif ($row->listrik == 3) {
-                                        $listrik = '> 900 Watt';
-                                    };
-                                    
-                                    if ($row->nilai_aset == 1) {
-                                        $aset = '< 500000';
-                                    } elseif ($row->nilai_aset == 2) {
-                                        $aset = '500000 - 1000000';
-                                    } elseif ($row->nilai_aset == 3) {
-                                        $aset = '> 1000000';
-                                    };
-
-                                    if ($row->bahan_bakar_memasak == 1) {
-                                        $bahan = 'Kayu/Sejenisnya';
-                                    } elseif ($row->bahan_bakar_memasak == 2) {
-                                        $bahan = 'Gas 3kg';
-                                    } elseif ($row->bahan_bakar_memasak == 3) {
-                                        $bahan = '> Gas 3kg';
-                                    };
                                 ?>
 
                                 <tr>
@@ -146,15 +75,15 @@
                                     @endcan
                                     <td>{{$row->nama_lengkap}}</td>
                                     <td>{{$row->nik}}</td>
-                                    <td>{{$air?:"-"}}</td>
-                                    <td>{{$mck?:"-"}}</td>
+                                    <td>{{$row->sumber_air?:"-"}}</td>
+                                    <td>{{$row->fasilitas_mck?:"-"}}</td>
                                     <td>{{$jkn?:"-"}}</td>
                                     <td>{{$pkh?:"-"}}</td>
-                                    <td>{{$aset?:"-"}}</td>
-                                    <td>{{$pendapatan?:"-"}}</td>
-                                    <td>{{$tempat?:"-"}}</td>
-                                    <td>{{$listrik?:"-"}}</td>
-                                    <td>{{$bahan?:"-"}}</td>
+                                    <td>{{$row->nilai_aset?:"-"}}</td>
+                                    <td>{{$row->pendapatan?:"-"}}</td>
+                                    <td>{{$row->nilai_aset?:"-"}}</td>
+                                    <td>{{$row->listrik?:"-"}}</td>
+                                    <td>{{$row->bahan_bakar_memasak?:"-"}}</td>
                                     <!-- @can('data-delete')
                                     <td>
                                         <form action="{{route ('datakeluarga.destroy',$row->id)}}" method="post" style="z-index: -1;">

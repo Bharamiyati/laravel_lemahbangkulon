@@ -43,7 +43,7 @@
                         </div>
                     @endif
                     <div class="card-header">
-                        <strong>Masukkan Data Dusun</strong>
+                        <strong>{{$pagename}}</strong>
                     </div>
                     <div class="card-body card-block">
                         @if($errors->any())
@@ -57,32 +57,12 @@
                             </div>
                         </div>
                         @endif
-                        <form action="{{route('alamat.update', $data_alamat->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="{{route('listrik.update', $data->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @method('PATCH')    
                         @csrf
                             <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">RT</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data_alamat->rt}}" name="txt_rt" placeholder="Masukkan nama dusun" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama Ketua RT</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data_alamat->nama_ketua_rt}}" name="txt_ketuart" placeholder="Masukkan nama dusun" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">RW</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data_alamat->rw}}" name="txt_rw" placeholder="Masukkan nama dusun" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama Ketua RW</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data_alamat->nama_ketua_rw}}" name="txt_ketuarw" placeholder="Masukkan nama dusun" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Dusun</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data_alamat->dusun}}" name="txt_dusun" placeholder="Masukkan nama dusun" class="form-control"><small class="form-text text-muted"></small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama Kepala Dusun</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data_alamat->nama_kepala_dusun}}" name="txt_kepaladusun" placeholder="Masukkan nama dusun" class="form-control"><small class="form-text text-muted"></small></div>
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Kategori listrik</label></div>
+                                <div class="col-12 col-md-9"><input type="text" id="text-input" value="{{$data->listrik}}" name="txt_listrik" placeholder="Masukkan kategori listrik" class="form-control"><small class="form-text text-muted"></small></div>
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-success btn-sm">
