@@ -81,7 +81,7 @@
                                     <td>{{$pkh?:"-"}}</td>
                                     <td>{{$row->nilai_aset?:"-"}}</td>
                                     <td>{{$row->pendapatan?:"-"}}</td>
-                                    <td>{{$row->nilai_aset?:"-"}}</td>
+                                    <td>{{$row->tempat_tinggal?:"-"}}</td>
                                     <td>{{$row->listrik?:"-"}}</td>
                                     <td>{{$row->bahan_bakar_memasak?:"-"}}</td>
                                     <!-- @can('data-delete')

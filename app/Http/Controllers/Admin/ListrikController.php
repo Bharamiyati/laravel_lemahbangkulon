@@ -13,6 +13,15 @@ class ListrikController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('permission:data-list', ['only' => ['index']]);
+        $this->middleware('permission:data-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:data-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:data-delete', ['only' => ['destroy']]);
+    }
+    
     public function index()
     {
         //
