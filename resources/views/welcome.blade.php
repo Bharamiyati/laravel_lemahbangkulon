@@ -97,7 +97,7 @@
             <div class="count-box">
               <i class="bi bi-person-lines-fill"></i>
               <span data-purecounter-start="0" data-purecounter-end="{{$terdata}}" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Jumlah Penduduk Terdata</p>
+              <p>Jumlah Penduduk Lokal</p>
             </div>
           </div>
 
@@ -105,7 +105,7 @@
             <div class="count-box">
               <i class="bi bi-person-lines-fill"></i>
               <span data-purecounter-start="0" data-purecounter-end="{{$tdkterdata}}" data-purecounter-duration="1" class="purecounter"></span>
-              <p> Jumlah Penduduk Tidak Terdata</p>
+              <p> Jumlah Penduduk Pendatang</p>
             </div>
           </div>
         </div>
